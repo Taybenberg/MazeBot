@@ -18,6 +18,7 @@ namespace MazeBotWorker
             Host.CreateDefaultBuilder(args)
                 .ConfigureServices((hostContext, services) =>
                 {
+                    services.AddSingleton(Environment.GetEnvironmentVariable("TelegramBotApiToken"));
                     services.AddHostedService<Worker>();
                 });
     }

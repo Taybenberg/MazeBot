@@ -8,22 +8,27 @@ using Microsoft.Extensions.Logging;
 
 namespace MazeBotWorker
 {
-    public class Worker : BackgroundService
+    public class Worker : IHostedService
     {
-        private readonly ILogger<Worker> _logger;
+        private MazeBot.Bot bot;
 
-        public Worker(ILogger<Worker> logger)
+        public Worker(string telegramBotApiToken)
         {
-            _logger = logger;
+            bot = new MazeBot.Bot(telegramBotApiToken);
         }
 
-        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+        public Task StartAsync(CancellationToken cancellationToken)
         {
-            while (!stoppingToken.IsCancellationRequested)
-            {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
-                await Task.Delay(1000, stoppingToken);
-            }
+            bot.Start();
+
+            return Task.CompletedTask;
+        }
+
+        public Task StopAsync(CancellationToken cancellationToken)
+        {
+            bot.Stop();
+
+            return Task.CompletedTask;
         }
     }
 }
