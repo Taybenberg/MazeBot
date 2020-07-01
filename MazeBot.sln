@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeBotWorker", "MazeBotWorker\MazeBotWorker.csproj", "{C45A549A-A7C1-4F35-9951-ED467EA4FC2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeEngine", "MazeEngine\MazeEngine.csproj", "{D9D9B8C4-0703-4DF2-BE6E-06556FF683F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MazeBot", "MazeBot\MazeBot.csproj", "{4EA71D6A-74E8-4702-B219-8F817C4043AA}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{9E8922F6-4052-426A-A929-21A55BBF68F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C45A549A-A7C1-4F35-9951-ED467EA4FC2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45A549A-A7C1-4F35-9951-ED467EA4FC2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45A549A-A7C1-4F35-9951-ED467EA4FC2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45A549A-A7C1-4F35-9951-ED467EA4FC2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9D9B8C4-0703-4DF2-BE6E-06556FF683F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9D9B8C4-0703-4DF2-BE6E-06556FF683F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9D9B8C4-0703-4DF2-BE6E-06556FF683F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9D9B8C4-0703-4DF2-BE6E-06556FF683F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EA71D6A-74E8-4702-B219-8F817C4043AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EA71D6A-74E8-4702-B219-8F817C4043AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EA71D6A-74E8-4702-B219-8F817C4043AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EA71D6A-74E8-4702-B219-8F817C4043AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E8922F6-4052-426A-A929-21A55BBF68F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E8922F6-4052-426A-A929-21A55BBF68F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E8922F6-4052-426A-A929-21A55BBF68F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E8922F6-4052-426A-A929-21A55BBF68F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF157944-CD66-4F43-8CA5-EA34BBE170DE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  mazebotworker:
+    image: ${DOCKER_REGISTRY-}mazebotworker
+    build:
+      context: .
+      dockerfile: MazeBotWorker/Dockerfile
