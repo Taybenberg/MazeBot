@@ -45,6 +45,8 @@ namespace MazeEngine
         private int startX, startY;
         private int finishX, finishY;
 
+        private bool drawerFlag;
+
         public Color emptyFrame { get; set; }
         public Color wallSurface { get; set; }
         public Color wallBorder { get; set; }
@@ -196,6 +198,14 @@ namespace MazeEngine
             };
 
             return false;
+        }
+
+        public Image GetImage(bool switchMode = false)
+        {
+            if (switchMode)
+                drawerFlag = !drawerFlag;
+
+            return drawerFlag ? DrawMap() : DrawFrame(); 
         }
 
         public Image DrawMap()
