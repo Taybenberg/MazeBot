@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using MazeCreator.Core;
 
 namespace MazeEngine
@@ -274,6 +275,14 @@ namespace MazeEngine
 
                 g.FillPolygon(brush, points);
                 g.DrawPolygon(pen, points);
+
+                var r = new Random();
+                var b = new SolidBrush(Color.FromArgb(r.Next(0, 256), r.Next(0, 256), r.Next(0, 256)));
+
+                g.FillRectangle(b, 0, 0, 1, 1);
+                g.FillRectangle(b, 0, frameSize -1, 1, 1);
+                g.FillRectangle(b, frameSize - 1, 0, 1, 1);
+                g.FillRectangle(b, frameSize - 1, frameSize - 1, 1, 1);
             }
 
             return map;
@@ -361,6 +370,14 @@ namespace MazeEngine
                     case direction.right: --y; break;
                 };
             }
+
+            var r = new Random();
+            var b = new SolidBrush(Color.FromArgb(r.Next(0, 256), r.Next(0, 256), r.Next(0, 256)));
+
+            g.FillRectangle(b, 0, 0, 1, 1);
+            g.FillRectangle(b, 0, frameSize - 1, 1, 1);
+            g.FillRectangle(b, frameSize - 1, 0, 1, 1);
+            g.FillRectangle(b, frameSize - 1, frameSize - 1, 1, 1);
 
             g.Dispose();
 
