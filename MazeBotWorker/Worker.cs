@@ -12,7 +12,7 @@ namespace MazeBotWorker
     {
         private MazeBot.Bot bot;
 
-        public Worker(string telegramBotApiToken)
+        public Worker()
         {
             /*  
              *  Хостинг AppHarbor записує конфігураційні змінні до файлу .config, 
