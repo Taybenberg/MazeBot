@@ -1,6 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Configuration;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
@@ -14,7 +14,17 @@ namespace MazeBotWorker
 
         public Worker(string telegramBotApiToken)
         {
-            bot = new MazeBot.Bot(telegramBotApiToken);
+            /*  
+             *  Хостинг AppHarbor записує конфігураційні змінні до файлу .config, 
+             *  який більше не використовується в .Net Core
+             *  Через це доводиться діставати токен за допомогою Regex-виразу
+             */
+
+            var regex = new Regex("\"TelegramBotApiToken\" value=\"(.+)\"");
+
+            var match = regex.Match(File.ReadAllText(ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).FilePath));
+
+            bot = new MazeBot.Bot(match.Groups[1].Value);
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
