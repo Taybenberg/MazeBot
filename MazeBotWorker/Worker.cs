@@ -22,7 +22,7 @@ namespace MazeBotWorker
 
             var regex = new Regex("\"TelegramBotApiToken\" value=\"(.+)\"");
 
-            var match = regex.Match(File.ReadAllText(ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None).FilePath));
+            var match = regex.Match(File.ReadAllText("MazeBotWorker.dll.config"));
 
             bot = new MazeBot.Bot(match.Groups[1].Value);
         }
