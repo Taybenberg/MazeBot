@@ -40,48 +40,53 @@ namespace MazeBot
 
                 var chatId = cqea.CallbackQuery.Message.Chat.Id;
 
-                await bot.AnswerCallbackQueryAsync(cqea.CallbackQuery.Id);
-
-                switch (cqea.CallbackQuery.Data)
+                try
                 {
-                    case "10x10":
-                        newMaze(chatId, 10);
-                        await bot.SendPhotoAsync(chatId, getImageStream(chatId), replyMarkup: getNavigationKeyboard());
-                        break;
+                    switch (cqea.CallbackQuery.Data)
+                    {
+                        case "10x10":
+                            newMaze(chatId, 10);
+                            await bot.SendPhotoAsync(chatId, getImageStream(chatId), replyMarkup: getNavigationKeyboard());
+                            break;
 
-                    case "20x20":
-                        newMaze(chatId, 20);
-                        await bot.SendPhotoAsync(chatId, getImageStream(chatId), replyMarkup: getNavigationKeyboard());
-                        break;
+                        case "20x20":
+                            newMaze(chatId, 20);
+                            await bot.SendPhotoAsync(chatId, getImageStream(chatId), replyMarkup: getNavigationKeyboard());
+                            break;
 
-                    case "50x50":
-                        newMaze(chatId, 50);
-                        await bot.SendPhotoAsync(chatId, getImageStream(chatId), replyMarkup: getNavigationKeyboard());
-                        break;
+                        case "50x50":
+                            newMaze(chatId, 50);
+                            await bot.SendPhotoAsync(chatId, getImageStream(chatId), replyMarkup: getNavigationKeyboard());
+                            break;
 
-                    case "map":
-                        updateImage(chatId, msgId, true);
-                        break;
+                        case "map":
+                            updateImage(chatId, msgId, true);
+                            break;
 
-                    case "up":
-                        if (getMaze(chatId).StepForward())
+                        case "up":
+                            if (getMaze(chatId).StepForward())
+                                updateImage(chatId, msgId);
+                            break;
+
+                        case "down":
+                            if (getMaze(chatId).StepBackward())
+                                updateImage(chatId, msgId);
+                            break;
+
+                        case "left":
+                            getMaze(chatId).TurnLeft();
                             updateImage(chatId, msgId);
-                        break;
+                            break;
 
-                    case "down":
-                        if (getMaze(chatId).StepBackward())
+                        case "right":
+                            getMaze(chatId).TurnRight();
                             updateImage(chatId, msgId);
-                        break;
-
-                    case "left":
-                        getMaze(chatId).TurnLeft();
-                        updateImage(chatId, msgId);
-                        break;
-
-                    case "right":
-                        getMaze(chatId).TurnRight();
-                        updateImage(chatId, msgId);
-                        break;
+                            break;
+                    }
+                }
+                catch (Exception e)
+                {
+                    await bot.AnswerCallbackQueryAsync(cqea.CallbackQuery.Id, e.InnerException.Message);
                 }
             };
 
